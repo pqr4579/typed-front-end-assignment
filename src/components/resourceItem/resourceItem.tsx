@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { colors, TypedIconButton } from "typed-design-system";
-import { Resource } from "../../atom/resource";
+import { Resource } from "../../model";
 import { Space } from "../../designComponent";
 import useResource from "../../hooks/useResource";
 

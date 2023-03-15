@@ -4,14 +4,15 @@ import { ToastContainer } from "react-toastify";
 
 import ResourceList from "./components/resourceList/reseourceList";
 import ResourceViewer from "./components/resourceViewer/viewer";
-import { Resource } from "./atom/resource";
+import { Resource } from "./model";
 
 import "react-toastify/dist/ReactToastify.css";
 
 const PageContainer = styled.div({
   display: "flex",
   flex: 1,
-  minHeight: "100vh",
+  height: "100vh",
+  maxHeight: "100vh",
   backgroundColor: "#C4C4C4",
 });
 const App: React.FC = () => {

@@ -2,7 +2,7 @@ import React, { useMemo, useState } from "react";
 import styled from "styled-components";
 import { colors } from "typed-design-system";
 
-import { Resource } from "../../atom/resource";
+import { Resource } from "../../model";
 import { FlatButton, Space } from "../../designComponent";
 import useResource from "../../hooks/useResource";
 import NewResourceInput from "../newResourceInput/newResourceInput";

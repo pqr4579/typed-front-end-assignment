@@ -1,4 +1,4 @@
-const YOUTUBE_HOST_NAME = "www.youtube.com";
+import { YOUTUBE_HOST_NAME } from "../const";
 
 export const urlValidator = (urlString: string) => {
   let url;
@@ -21,11 +21,11 @@ export const replaceToEmbeddUrl = (urlString: string) => {
     if (match) {
       const videoId = match[1];
       const embedUrl = `https://www.youtube.com/embed/${videoId}`;
-      return embedUrl;
+      return { url: embedUrl, host: url.hostname };
     }
   }
 
-  return url.href;
+  return { url: url.href, host: url.hostname };
 };
 
 const delay = () => {

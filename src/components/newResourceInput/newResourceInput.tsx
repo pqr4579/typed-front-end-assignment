@@ -31,7 +31,6 @@ const NewResourceInput: React.FC<NewResourceInputProps> = ({
 }) => {
   const [urlValue, setUrlValue] = useState<string>("");
   const [isValid, setIsValid] = useState<boolean>(true);
-
   const { addResource } = useResource();
 
   const onPressEnter = async (e: KeyboardEvent<HTMLInputElement>) => {
@@ -42,12 +41,13 @@ const NewResourceInput: React.FC<NewResourceInputProps> = ({
       } else {
         setIsValid(true);
 
-        const checkedUrl = replaceToEmbeddUrl(urlValue);
+        const { url, host } = replaceToEmbeddUrl(urlValue);
 
         await addResource({
-          name: checkedUrl,
-          resource: checkedUrl,
+          name: url,
+          resource: url,
           type: "url",
+          host,
         });
       }
     }

@@ -1,11 +1,5 @@
 import { atom } from "recoil";
-
-export interface Resource {
-  type: "url" | "image";
-  resource: string;
-  name: string;
-  created_at: any;
-}
+import { Resource } from "../model";
 
 const defaultResources = {};
 
@@ -22,7 +16,7 @@ export const resources = atom<{ [key: string]: Resource }>({
       resource:
         "https://typed.blog/how-to-write-a-better-research-paper-faster/",
       name: "https://typed.blog/how-to-write-a-better-research-paper-faster/",
-      created_at: new Date().getTime() + 10000,
+      created_at: new Date().getTime() + 1000,
     },
   },
   key: "resources",

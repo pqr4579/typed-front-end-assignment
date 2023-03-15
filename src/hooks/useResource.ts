@@ -2,10 +2,13 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useRecoilState } from "recoil";
 import atom from "../atom";
-import { Resource } from "../atom/resource";
+import { Resource } from "../model/index";
 import { isSuccess } from "../utils";
 
-type AddResourceParameter = Pick<Resource, "name" | "resource" | "type">;
+type AddResourceParameter = Pick<
+  Resource,
+  "name" | "resource" | "type" | "host"
+>;
 
 const useResource = () => {
   const [resources, setResources] = useRecoilState(atom.resource.resources);
@@ -15,6 +18,7 @@ const useResource = () => {
     name,
     resource,
     type,
+    host,
   }: AddResourceParameter) => {
     try {
       setIsLoading(true);
@@ -32,6 +36,7 @@ const useResource = () => {
             resource,
             type,
             created_at: new Date().toISOString(),
+            host,
           },
         };
       });
