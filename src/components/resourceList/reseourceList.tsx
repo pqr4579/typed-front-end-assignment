@@ -15,7 +15,6 @@ const ResourceListContainer = styled.div({
   width: "280px",
   maxWidth: "280px",
   height: "100vh",
-  position: "relative",
   overflow: "scroll",
 });
 
@@ -26,7 +25,6 @@ const ResourceOption = styled.div({
   maxWidth: "100%",
   height: "50px",
   boxShadow: `0px 2px 5px rgba(0, 0, 0, 0.1)`,
-  position: "relative",
   top: 0,
   paddingLeft: 10,
   paddingRight: 10,

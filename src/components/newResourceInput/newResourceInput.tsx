@@ -5,6 +5,7 @@ import { colors } from "typed-design-system";
 import { replaceToEmbeddUrl, urlValidator } from "../../utils";
 import Overlay from "../../designComponent/overlay/overlay";
 import useResource from "../../hooks/useResource";
+import { OverlayZIndex } from "../../const";
 
 const NewUrlInputContainer = styled.div({
   display: "flex",
@@ -16,7 +17,7 @@ const NewUrlInputContainer = styled.div({
   borderRadius: 5,
   top: 45,
   border: `1px solid ${colors.gray90()}`,
-  zIndex: 9999999,
+  zIndex: OverlayZIndex + 1,
 });
 
 interface NewResourceInputProps {
