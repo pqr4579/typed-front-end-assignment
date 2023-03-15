@@ -71,7 +71,7 @@ interface ResourceItemProps {
   value?: string;
   setValue?: () => void;
   isSelected?: boolean;
-  onSelect?: () => void;
+  onSelect: (r: Resource | null) => void;
 }
 
 const ResourceItem: React.FC<ResourceItemProps> = ({
@@ -103,7 +103,12 @@ const ResourceItem: React.FC<ResourceItemProps> = ({
   };
 
   return (
-    <ResourceItemContainer isSelected={isSelected} onClick={onSelect}>
+    <ResourceItemContainer
+      isSelected={isSelected}
+      onClick={() => {
+        onSelect(resource);
+      }}
+    >
       {!isFocused ? (
         <ResourceContent>{resourceName}</ResourceContent>
       ) : (
@@ -145,6 +150,7 @@ const ResourceItem: React.FC<ResourceItemProps> = ({
             e.stopPropagation();
             if (window.confirm("리소스를 정말 삭제하시겠습니까?")) {
               await removeResource(resource.name);
+              onSelect(null);
             }
           }}
         />

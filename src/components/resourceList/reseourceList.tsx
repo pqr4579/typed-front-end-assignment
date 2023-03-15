@@ -45,7 +45,7 @@ const ItemsWrapper = styled.div({
 
 interface ResoruceListProps {
   selectedResource: Resource | null;
-  setSelectedResource: (resource: Resource) => void;
+  setSelectedResource: (resource: Resource | null) => void;
 }
 
 const ResourceList: React.FC<ResoruceListProps> = ({
@@ -126,9 +126,7 @@ const ResourceList: React.FC<ResoruceListProps> = ({
         {enrolledResource.map((resource) => {
           return (
             <ResourceItem
-              onSelect={() => {
-                setSelectedResource(resource);
-              }}
+              onSelect={setSelectedResource}
               key={resource.name}
               resource={resource}
               isSelected={selectedResource?.resource === resource.resource}
