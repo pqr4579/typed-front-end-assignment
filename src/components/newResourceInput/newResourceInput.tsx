@@ -1,8 +1,8 @@
 import React, { useState, KeyboardEvent } from "react";
-import TextInput from "../../designComponent/textInputWithValidator/textInputWithValidator";
+import TextInput from "../../designComponent/textInput/textInput";
 import styled from "styled-components";
 import { colors } from "typed-design-system";
-import { urlValidator } from "../../utils";
+import { replaceToEmbeddUrl, urlValidator } from "../../utils";
 import Overlay from "../../designComponent/overlay/overlay";
 import useResource from "../../hooks/useResource";
 
@@ -40,9 +40,12 @@ const NewResourceInput: React.FC<NewResourceInputProps> = ({
         return;
       } else {
         setIsValid(true);
+
+        const checkedUrl = replaceToEmbeddUrl(urlValue);
+
         await addResource({
-          name: urlValue,
-          resource: urlValue,
+          name: checkedUrl,
+          resource: checkedUrl,
           type: "url",
         });
       }

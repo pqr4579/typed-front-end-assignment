@@ -1,3 +1,5 @@
+const YOUTUBE_HOST_NAME = "www.youtube.com";
+
 export const urlValidator = (urlString: string) => {
   let url;
   try {
@@ -9,8 +11,21 @@ export const urlValidator = (urlString: string) => {
   return url.protocol === "https:" || url.protocol === "https:";
 };
 
-export const replaceToEmbededUrl = (urlString: string) => {
-  return "embeded";
+export const replaceToEmbeddUrl = (urlString: string) => {
+  const url = new URL(urlString);
+  if (url.hostname === YOUTUBE_HOST_NAME) {
+    const targetUrl = url.href;
+    const regex = /watch\?v=(.{11})/;
+    const match = targetUrl.match(regex);
+
+    if (match) {
+      const videoId = match[1];
+      const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+      return embedUrl;
+    }
+  }
+
+  return url.href;
 };
 
 const delay = () => {
