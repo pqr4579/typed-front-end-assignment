@@ -1,8 +1,9 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import { Resource } from "../../atom/resource";
+import { Resource } from "../../model";
 import { TypedIconButton } from "typed-design-system";
 import { Overlay } from "../../designComponent";
+import { YOUTUBE_HOST_NAME } from "../../const";
 
 const ViewerContainer = styled.div({
   display: "flex",
@@ -99,7 +100,12 @@ const ResourceViewer: React.FC<ResourceViewerProps> = ({
               sandbox={
                 "allow-same-origin allow-scripts allow-popups allow-forms"
               }
-              src={selectedResource.resource}
+              src={
+                selectedResource.host === YOUTUBE_HOST_NAME
+                  ? selectedResource.resource
+                  : TYPED_PROXY_URL + selectedResource.resource
+              }
+              allowFullScreen
               width="100%"
               height="100%"
             />
