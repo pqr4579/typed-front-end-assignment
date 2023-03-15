@@ -75,7 +75,6 @@ interface ResourceItemProps {
 }
 
 const ResourceItem: React.FC<ResourceItemProps> = ({
-  type,
   resource,
   isSelected,
   onSelect,
@@ -106,6 +105,10 @@ const ResourceItem: React.FC<ResourceItemProps> = ({
     <ResourceItemContainer
       isSelected={isSelected}
       onClick={() => {
+        if (isSelected) {
+          onSelect(null);
+          return;
+        }
         onSelect(resource);
       }}
     >
