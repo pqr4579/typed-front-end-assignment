@@ -35,7 +35,7 @@ const useResource = () => {
             name,
             resource,
             type,
-            created_at: new Date().toISOString(),
+            created_at: new Date().getTime(),
             host,
           },
         };
@@ -72,6 +72,7 @@ const useResource = () => {
       } else {
         throw new Error("This resource does not exist");
       }
+      toast("Remove Resource Success!");
     } catch (e) {
       if (e instanceof Error) {
         toast.error(e.message);
