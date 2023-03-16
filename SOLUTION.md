@@ -69,8 +69,6 @@ IFrame이 렌더링 되기 전, 해당 URL이 X-Frames-Option이 'Same-Origin'�
 
 하지만 프록시 서버를 구축 할 수 없었을 뿐더러, 유효 기간이 최대 3일까지 인지라 다른 분이 뵜을때까지 유효한 방식인지 확실하지 않았습니다.
 
-게다가 당연히 프록시 서버에서 보내주는 Header 정보는 X-Frame-Options이 Same-Origin'이나 'Deny'이 아닐 것이었습니다.
-
 결국 해당 유튜브 URL일 경우 ProxyServer를 붙여주지 않고, 나머지는 X-Frame-Options과 관계없이 Proxy-Server URL를 앞에 붙여주는 선택을 하였습니다.
 
 ```javascript
