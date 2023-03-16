@@ -57,15 +57,11 @@ const ResourceList: React.FC<ResoruceListProps> = ({
   const enrolledResource = useMemo(() => {
     if (resources) {
       return Object.values(resources).sort(
-        (resourceA, resourceB) => resourceA.created_at - resourceB.created_at
+        (resourceA, resourceB) => resourceB.created_at - resourceA.created_at
       );
     } else {
       return [];
     }
-  }, [resources]);
-
-  useEffect(() => {
-    console.log(resources);
   }, [resources]);
 
   const initSelectedFile = (e: React.MouseEvent<HTMLInputElement>) => {
