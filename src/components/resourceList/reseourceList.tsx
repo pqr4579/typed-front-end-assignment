@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import styled from "styled-components";
 import { colors } from "typed-design-system";
 
@@ -56,12 +56,16 @@ const ResourceList: React.FC<ResoruceListProps> = ({
 
   const enrolledResource = useMemo(() => {
     if (resources) {
-      return Object.values(resources).sort((resourceA, resourceB) => {
-        return resourceA.created_at - resourceB.created_at;
-      });
+      return Object.values(resources).sort(
+        (resourceA, resourceB) => resourceA.created_at - resourceB.created_at
+      );
     } else {
       return [];
     }
+  }, [resources]);
+
+  useEffect(() => {
+    console.log(resources);
   }, [resources]);
 
   const initSelectedFile = (e: React.MouseEvent<HTMLInputElement>) => {
