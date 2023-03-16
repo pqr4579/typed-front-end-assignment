@@ -1,46 +1,96 @@
-# Getting Started with Create React App
+# Typed Frontend Engineer 기술 과제
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> ## 목차<br>
 
-## Available Scripts
+> - [기간](#기간)
+> - [사용기술](#사용기술)
+> - [구현된 기능](#구현된-기능)
+> - [데모](#데모)
+> - [실행방법](#실행방법)
+> - [접속 URL](#접속-url)
+> - [디렉토리 구조](#디렉토리-구조)
 
-In the project directory, you can run:
+## 기간
 
-### `npm start`
+2023-03-13 ~ 2023-03-16
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 사용기술
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- React 18
+- TypeScript 4.9.5
+- styled-components ( CSS In JS )
+- Recoil ( State )
+- Toastify ( Toast UI )
 
-### `npm test`
+## 구현된 기능
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [x] url , image 리소스 추가, 삭제
+- [x] 리소스 이름 변경
+- [x] 리소스 등록 validation
+- [x] url 리소스와 image 리소스를 클릭하면 뷰어에 표시
+- [x] 성공시 성공 토스트
+- [x] 실패시 실패 토스트
 
-### `npm run build`
+## 데모
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![이미지등록 시연 영상](https://user-images.githubusercontent.com/37769573/225485848-d0160263-6119-4784-ab4c-bcb00fe2a236.gif)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<p>이미지 등록 </p>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![뷰어 시연 영상](https://user-images.githubusercontent.com/37769573/225486253-8185c813-266e-49e2-98ca-82121668a39e.gif)
 
-### `npm run eject`
+<p>뷰어 </p>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 실행방법
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+$ git clone https://github.com/pqr4579/typed-front-end-assignment.git
+$ npm install or yarn
+$ npm run start or yarn start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 접속 URL
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+http://localhost:3000
 
-## Learn More
+## 디렉토리 구조
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+├── App.tsx
+├── atom
+│   ├── appSetting.ts
+│   ├── index.ts
+│   └── resource.ts
+├── components
+│   ├── newResourceInput
+│   │   └── newResourceInput.tsx
+│   ├── resourceItem
+│   │   └── resourceItem.tsx
+│   ├── resourceList
+│   │   └── reseourceList.tsx
+│   └── resourceViewer
+│       └── viewer.tsx
+├── const
+│   └── index.ts
+├── designComponent
+│   ├── flatButton
+│   │   └── flatButton.tsx
+│   ├── index.ts
+│   ├── overlay
+│   │   └── overlay.tsx
+│   ├── space
+│   │   └── space.tsx
+│   ├── textInput
+│   │   └── textInput.tsx
+│   └── tooltip
+├── hooks
+│   └── useResource.ts
+├── index.css
+├── index.tsx
+├── logo.svg
+├── model
+│   └── index.ts
+├── setupTests.ts
+└── utils
+    └── index.ts
+```
